@@ -1,0 +1,39 @@
+.analyzePage {
+
+  min-height: 100vh;
+
+  width: 100%;
+
+  position: relative;
+
+  overflow-x: hidden;
+
+}
+
+
+.analyzePage::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.32);
+
+  backdrop-filter: blur(3px);
+
+  -webkit-backdrop-filter: blur(3px);
+
+  z-index: 0;
+
+}
+
+
+.analyzePage > * {
+
+  position: relative;
+
+  z-index: 1;
+
+}

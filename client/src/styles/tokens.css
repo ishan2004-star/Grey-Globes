@@ -1,0 +1,67 @@
+:root {
+
+  /* COLORS */
+
+  --color-primary:
+  #ffffff;
+
+  --color-secondary:
+  rgba(255,255,255,0.72);
+
+  --color-muted:
+  rgba(255,255,255,0.55);
+
+  --color-border:
+  rgba(255,255,255,0.08);
+
+  --color-overlay:
+  rgba(255,255,255,0.03);
+
+  --color-line:
+  rgba(255,255,255,0.15);
+
+  /* SPACING */
+
+  --section-padding:
+  120px 80px 160px 80px;
+
+  --section-padding-mobile:
+  100px 28px 140px 28px;
+
+  --content-gap:
+  60px;
+
+  --content-gap-mobile:
+  42px;
+
+  /* TYPOGRAPHY */
+
+  --font-family:
+  "Poppins", sans-serif;
+
+  --title-size:
+  72px;
+
+  --hero-size:
+  84px;
+
+  --text-size:
+  20px;
+
+  --label-size:
+  15px;
+
+  /* RADIUS */
+
+  --radius-large:
+  28px;
+
+  --radius-medium:
+  18px;
+
+  /* TRANSITIONS */
+
+  --transition-default:
+  0.4s ease;
+
+}

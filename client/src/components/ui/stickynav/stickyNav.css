@@ -1,0 +1,153 @@
+.stickyNavWrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  position: sticky;
+  top: 80px;
+
+  z-index: 50;
+
+  margin-bottom: 40px;
+  margin-top: 70px;
+}
+
+.stickyNav {
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 14px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border:
+    1px solid var(--color-border);
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.24);
+
+}
+
+.navItem {
+  border: none;
+  outline: none;
+
+  padding: 14px 24px;
+
+  border-radius: 999px;
+
+  background: transparent;
+
+color: var(--color-secondary);
+
+letter-spacing: 0.5px;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  font-family: var(--font-family);
+}
+
+.navItem:hover {
+  color: var(--color-primary);
+
+background:
+  var(--color-border);
+}
+
+.activeNav {
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.14),
+      var(--color-border)
+    );
+
+  color: var(--color-primary);
+
+  border:
+    1px solid var(--color-border);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.22);
+
+}
+
+
+@media (max-width: 900px) {
+
+.stickyNavWrapper {
+
+
+justify-content: flex-start;
+
+overflow-x: auto;
+
+padding: 0 20px;
+
+scrollbar-width: none;
+
+
+}
+
+.stickyNavWrapper::-webkit-scrollbar {
+
+
+display: none;
+
+
+}
+
+.stickyNav {
+
+
+min-width: max-content;
+
+
+}
+
+}
+
+.stickyNavWrapper {
+
+  animation:
+    stickyFade 0.6s
+    cubic-bezier(0.22,1,0.36,1);
+
+}
+
+@keyframes stickyFade {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(-20px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}

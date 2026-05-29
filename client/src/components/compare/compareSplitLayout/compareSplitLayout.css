@@ -1,0 +1,149 @@
+.compareSplitSection {
+
+width: 100%;
+
+padding: 140px 80px;
+
+position: relative;
+
+}
+
+.compareSplitSection::before {
+
+content: "";
+
+position: absolute;
+
+inset: 0;
+
+background-image:
+radial-gradient(
+rgba(255,255,255,0.025) 1px,
+transparent 1px
+);
+
+background-size: 16px 16px;
+
+opacity: 0.3;
+
+pointer-events: none;
+
+}
+
+.compareSplitHeader {
+
+max-width: 1500px;
+
+margin: 0 auto 90px auto;
+
+}
+
+.compareSplitHeader span {
+
+font-size: 13px;
+
+letter-spacing: 6px;
+
+text-transform: uppercase;
+
+color: var(--color-muted);
+
+font-family: var(--font-family);
+
+}
+
+.compareSplitHeader h1 {
+
+margin-top: 18px;
+
+font-size: clamp(4rem, 7vw, 7rem);
+
+line-height: 0.92;
+
+letter-spacing: -5px;
+
+color: var(--color-primary);
+
+font-weight: 600;
+
+font-family: var(--font-family);
+
+}
+
+.compareSplitGrid {
+
+max-width: 1500px;
+
+margin: 0 auto;
+
+display: grid;
+
+grid-template-columns: 1fr 80px 1fr;
+
+gap: 40px;
+
+align-items: start;
+
+}
+
+.comparePanel {
+
+position: relative;
+
+}
+
+.compareCenterLine {
+
+width: 100%;
+
+display: flex;
+
+justify-content: center;
+
+}
+
+.compareLine {
+
+width: 1px;
+
+min-height: 100%;
+
+background:
+linear-gradient(
+to bottom,
+transparent,
+rgba(255,255,255,0.18),
+transparent
+);
+
+}
+
+@media (max-width: 1000px) {
+
+.compareSplitSection {
+
+
+padding: 120px 28px;
+
+
+}
+
+.compareSplitGrid {
+
+
+grid-template-columns: 1fr;
+
+gap: 80px;
+
+
+}
+
+.compareCenterLine {
+
+
+display: none;
+
+
+}
+
+}

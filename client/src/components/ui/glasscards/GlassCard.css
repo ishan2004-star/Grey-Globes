@@ -1,0 +1,155 @@
+/* GlassCard.css */
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: space-between;
+
+  /* changed */
+  align-items: flex-start;
+
+  gap: 140px;
+
+  padding: 220px 80px 0 80px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.container::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.32);
+
+  backdrop-filter: blur(3px);
+
+  z-index: 0;
+}
+
+.textSection {
+  width: 650px;
+
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(40px);
+
+  gap: 30px;
+
+  /* added */
+  margin-top: 0;
+}
+
+.textSection,
+.card {
+  position: relative;
+
+  z-index: 1;
+}
+
+.textSection h1 {
+  color: var(--color-primary);
+
+  font-size: 72px;
+
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  letter-spacing: -2px;
+
+  font-family: var(--font-family);
+
+  /* added */
+  margin: 0;
+}
+
+.textSection p {
+  color: rgba(255, 255, 255, 1);
+
+  font-size: 20px;
+
+  line-height: 1.8;
+
+  font-weight: 400;
+
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+
+  font-family: var(--font-family);
+
+  font-style: bold;
+
+  margin: 0;
+}
+
+.card {
+  width: 470px;
+  height: 400px;
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(-125px);
+
+  /* added */
+  margin-top: 15px;
+}
+
+.buttonContainer {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  gap: 50px;
+}
+
+.glassButton {
+  width: 100%;
+  height: 75px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 22px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  font-size: 24px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.8px;
+
+  color: var(--color-primary);
+
+  font-family: var(--font-family);
+}
+
+.glassButton:hover {
+  transform: translateY(-5px);
+
+  background: rgba(255, 255, 255, 0.18);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,41 @@
+.reveal {
+
+  opacity: 0;
+
+  transform:
+    translateY(70px)
+    scale(0.985);
+
+  filter: blur(10px);
+
+  transition:
+
+    opacity 1.2s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+
+    transform 1.2s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+
+    filter 1.2s ease;
+
+}
+
+.revealed {
+
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter: blur(0);
+
+}

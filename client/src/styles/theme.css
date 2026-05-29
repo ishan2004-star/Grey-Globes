@@ -1,0 +1,27 @@
+:root {
+
+  /* PRIMARY COLORS */
+  --primary-color: #00bcd4;
+  --secondary-color: #7c4dff;
+
+  /* BACKGROUND COLORS */
+  --background-dark: #050816;
+  --background-light: #0f172a;
+
+  /* GLASS EFFECT */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+
+  /* TEXT */
+  --text-primary: var(--color-primary);
+  --text-secondary: #cbd5e1;
+
+  /* SHADOW */
+  --shadow-glow: 0 0 20px rgba(0, 188, 212, 0.35);
+
+  /* BORDER RADIUS */
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+
+}

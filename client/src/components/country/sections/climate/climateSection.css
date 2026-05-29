@@ -1,0 +1,86 @@
+.climateFeature {
+
+  padding-top: 40px;
+
+  border-top:
+    1px solid var(--color-border);
+
+}
+
+.climateFeature span {
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: var(--color-muted);
+
+  font-family: var(--font-family);
+
+}
+
+.climateFeature h1 {
+
+  margin-top: 18px;
+
+  font-size: 96px;
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  color: var(--color-primary);
+
+  font-weight: 600;
+
+  font-family: var(--font-family);
+
+}
+
+.climateFeature p {
+
+  margin-top: 28px;
+
+  max-width: 760px;
+
+  font-size: 21px;
+
+  line-height: 1.9;
+
+  color: var(--color-secondary);
+
+  font-family: var(--font-family);
+
+}
+
+.compareForestCoverage {
+
+  margin-top: 28px;
+
+  font-size: 72px;
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+
+  color: var(--color-muted);
+
+  font-weight: 600;
+
+  font-family: var(--font-family);
+
+}
+
+@media (max-width: 900px) {
+
+  .climateFeature h1 {
+
+    font-size: 68px;
+
+  }
+
+}

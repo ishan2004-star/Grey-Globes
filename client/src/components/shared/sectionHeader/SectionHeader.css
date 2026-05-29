@@ -1,0 +1,43 @@
+.sectionHeader {
+
+  max-width: 1200px;
+
+  margin: 0 auto 70px auto;
+
+}
+
+.sectionLiveIndicator {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+
+}
+
+.sectionLiveDot {
+
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+}
+
+.sectionLiveIndicator span {
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.62);
+
+  font-family: var(--font-family);
+
+}

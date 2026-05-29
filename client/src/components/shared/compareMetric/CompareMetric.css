@@ -1,0 +1,123 @@
+.compareMetric {
+
+  position: relative;
+
+  padding-bottom: 28px;
+
+  border-bottom:
+    1px solid var(--color-border);
+
+  transition: all 0.3s ease;
+
+}
+
+.compareMetric:hover {
+
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(255,255,255,0.16);
+
+}
+
+.compareMetricLabel {
+
+  font-size: 14px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.52);
+
+  font-family: var(--font-family);
+
+}
+
+.singleMetricValue h3 {
+
+  margin-top: 18px;
+
+  font-size: 42px;
+
+  color: var(--color-primary);
+
+  font-weight: 500;
+
+  line-height: 1.1;
+
+  font-family: var(--font-family);
+
+}
+
+.compareMetricValues {
+
+  margin-top: 22px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  gap: 28px;
+
+  align-items: center;
+
+}
+
+.metricCountry h3 {
+
+  font-size: 34px;
+
+  color: var(--color-primary);
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  font-family: var(--font-family);
+
+}
+
+.metricCountry p {
+
+  margin-top: 10px;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  color: rgba(255,255,255,0.48);
+
+  font-family: var(--font-family);
+
+}
+
+.metricDivider {
+
+  width: 1px;
+
+  height: 60px;
+
+  background:
+    var(--color-border);
+
+}
+
+@media (max-width: 900px) {
+
+  .compareMetricValues {
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+  }
+
+  .metricDivider {
+
+    display: none;
+
+  }
+
+}

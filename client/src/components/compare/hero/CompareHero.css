@@ -1,0 +1,399 @@
+
+/* features/compare/hero/compareHero.css */
+body {
+
+  overflow-x: hidden;
+
+}
+.compareHero {
+
+  width: 100%;
+
+  min-height: 70vh;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 120px 80px 40px 80px;
+
+  overflow: hidden;
+
+}
+
+.heroBackground {
+
+  position: absolute;
+
+width: 650px;
+height: 650px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--color-border) 0%,
+      var(--color-overlay) 28%,
+      transparent 68%
+    );
+
+  filter: blur(40px);
+
+  opacity: 0.9;
+
+  z-index: 0;
+
+}
+
+
+
+.compareHeroContent {
+
+  width: 100%;
+
+  max-width: 1500px;
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+.compareHeroTop {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 60px;
+
+  gap: 40px;
+
+}
+
+.compareHeroTop span {
+
+  font-size: 13px;
+
+  letter-spacing: 6px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.6);
+
+  font-family: var(--font-family);
+
+}
+
+.compareHeroTop p {
+
+  font-size: 15px;
+
+  color: var(--color-muted);
+
+  letter-spacing: 1px;
+
+  font-family: var(--font-family);
+
+}
+
+.compareCountries {
+
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 120px 1fr;
+
+  align-items: center;
+
+  gap: 40px;
+
+}
+
+.countryBlock {
+
+  width: 100%;
+
+}
+
+.leftCountry {
+
+  text-align: left;
+
+}
+
+.rightCountry {
+
+  text-align: right;
+
+}
+
+.countryBlock h1 {
+
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+
+  line-height: 0.9;
+
+  letter-spacing: -8px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  color: var(--color-primary);
+
+  font-family: var(--font-family);
+
+  position: relative;
+
+}
+
+.vsBlock {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 18px;
+
+}
+
+.vsBlock span {
+
+  font-size: 14px;
+
+  letter-spacing: 8px;
+
+  color: rgba(255,255,255,0.45);
+
+  font-family: var(--font-family);
+
+}
+
+.vsLine {
+
+  width: 1px;
+
+  height: 120px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255,255,255,0.35),
+      transparent
+    );
+
+}
+
+@media (max-width: 1000px) {
+
+  .compareHero {
+
+    padding:
+      140px 28px
+      100px 28px;
+
+  }
+
+  .compareHeroTop {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-bottom: 80px;
+
+  }
+
+  .compareCountries {
+
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+
+  }
+
+  .leftCountry,
+  .rightCountry {
+
+    text-align: left;
+
+  }
+
+  .vsBlock {
+
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+  }
+
+  .vsLine {
+
+    width: 70px;
+
+    height: 1px;
+
+    background:
+      linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+      );
+
+  }
+
+}
+
+.compareHero::before {
+
+content: "";
+
+position: absolute;
+
+inset: 0;
+
+background:
+radial-gradient(
+circle at center,
+rgba(255,255,255,0.05),
+transparent 60%
+);
+
+opacity: 0.6;
+
+z-index: 0;
+
+}
+
+.compareHero::after {
+
+content: "";
+
+position: absolute;
+
+inset: 0;
+
+background-image:
+radial-gradient(
+rgba(255,255,255,0.045) 1px,
+transparent 1px
+);
+
+background-size: 12px 12px;
+
+opacity: 0.12;
+
+mix-blend-mode: overlay;
+
+pointer-events: none;
+
+}
+
+.compareHeroContent {
+
+animation:
+heroFadeUp 1.4s
+cubic-bezier(0.22,1,0.36,1);
+
+}
+
+
+.countryBlock h1::after {
+
+content: "";
+
+position: absolute;
+
+left: 0;
+
+bottom: -18px;
+
+width: 100%;
+
+height: 1px;
+
+background:
+linear-gradient(
+to right,
+rgba(255,255,255,0.22),
+transparent
+);
+
+}
+
+.rightCountry h1::after {
+
+left: auto;
+
+right: 0;
+
+background:
+linear-gradient(
+to left,
+rgba(255,255,255,0.22),
+transparent
+);
+
+}
+
+.vsBlock span {
+
+position: relative;
+
+}
+
+.vsBlock span::before {
+
+content: "";
+
+position: absolute;
+
+inset: -16px;
+
+border-radius: 50%;
+
+border:
+1px solid var(--color-border);
+
+}
+
+@keyframes heroFadeUp {
+
+from {
+
+
+opacity: 0;
+
+transform:
+  translateY(40px);
+
+
+}
+
+to {
+
+
+opacity: 1;
+
+transform:
+  translateY(0);
+
+
+}
+
+}
+
+

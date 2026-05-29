@@ -1,0 +1,22 @@
+.explorePage {
+  min-height: 100vh;
+  position: relative;
+}
+
+.explorePage::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(3px);
+
+  z-index: 0;
+}
+
+.exploreContent {
+  position: relative;
+  z-index: 1;
+}

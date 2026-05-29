@@ -1,0 +1,397 @@
+.atlasSection {
+
+  width: 100%;
+
+  padding: var(--section-padding);
+
+  position: relative;
+
+  z-index: 1;
+
+  overflow: hidden;
+
+  transition:
+  opacity var(--transition-default),
+  transform var(--transition-default);
+
+}
+
+.atlasSection::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+  radial-gradient(
+    circle at top left,
+    rgba(59,130,246,0.08),
+    transparent 35%
+  ),
+  radial-gradient(
+    rgba(255,255,255,0.025) 1px,
+    transparent 1px
+  );
+
+  background-size: auto, 14px 14px;
+
+  opacity: 0.18;
+
+  pointer-events: none;
+
+}
+
+.atlasHeader {
+
+  max-width: 1200px;
+
+  margin: 0 auto 64px auto;
+
+}
+
+.atlasLabel {
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.68);
+
+  font-family: var(--font-family);
+
+}
+
+.atlasTitle {
+
+  margin-top: 16px;
+
+  font-size: 72px;
+
+  line-height: 0.94;
+
+  letter-spacing: -3px;
+
+  color: var(--color-primary);
+
+  font-weight: 600;
+
+  font-family: var(--font-family);
+
+}
+
+.atlasHero {
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1.2fr 0.8fr;
+
+  gap: 48px;
+
+  align-items: center;
+
+  padding-bottom: 72px;
+
+  border-bottom:
+    1px solid var(--color-border);
+
+}
+
+.atlasCompareHero {
+
+  grid-template-columns:
+  1fr 0.8fr 1fr;
+
+  align-items: center;
+
+}
+
+.atlasIdentity {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 36px;
+
+}
+
+.flagBlock {
+
+  width: 140px;
+
+  height: 100px;
+
+  overflow: hidden;
+
+  border:
+    1px solid var(--color-border);
+
+  background:
+    var(--color-overlay);
+
+}
+
+.flagImage {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+.countryInfo span,
+.mapContent span {
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: var(--color-muted);
+
+  font-family: var(--font-family);
+
+}
+
+.countryInfo h2 {
+
+  margin-top: 14px;
+
+  font-size: 56px;
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  color: var(--color-primary);
+
+  font-weight: 600;
+
+  font-family: var(--font-family);
+
+}
+
+.countryInfo p {
+
+  margin-top: 18px;
+
+  font-size: 19px;
+
+  line-height: 1.7;
+
+  color: var(--color-secondary);
+
+  font-family: var(--font-family);
+
+}
+
+.mapPreview {
+
+  width: 100%;
+
+  min-height: 240px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: end;
+
+  text-decoration: none;
+
+  border:
+    1px solid var(--color-border);
+
+  background:
+    var(--color-overlay);
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,0.28);
+
+}
+
+.mapPreview:hover {
+
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(255,255,255,0.16);
+
+}
+
+.mapImage {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0.45;
+
+  transition: transform 0.5s ease;
+
+}
+
+.mapPreview:hover .mapImage {
+
+  transform: scale(1.04);
+
+}
+
+.mapOverlay {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  padding: 36px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(2,6,23,0.82),
+      rgba(0,0,0,0.15),
+      transparent
+    );
+
+}
+
+.mapContent h3 {
+
+  margin-top: 12px;
+
+  font-size: 36px;
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+
+  color: var(--color-primary);
+
+  font-weight: 500;
+
+  font-family: var(--font-family);
+
+}
+
+.atlasGrid {
+
+  max-width: 1200px;
+
+  margin: 72px auto 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: var(--content-gap);
+
+}
+
+.compareActive .atlasGrid {
+
+  grid-template-columns: 1fr;
+
+}
+
+@media (min-width: 901px) {
+
+  .atlasSection:not(.compareActive) .atlasGrid .compareMetric:nth-child(odd)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: calc(var(--content-gap) / -2);
+    width: 1px;
+    background: var(--color-border);
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .atlasSection {
+
+    padding: var(--section-padding-mobile);
+
+  }
+
+  .atlasTitle {
+
+    font-size: 54px;
+
+  }
+
+  .atlasHero,
+  .atlasCompareHero {
+
+    grid-template-columns: 1fr;
+
+    gap: 36px;
+
+  }
+
+  .atlasIdentity {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+  }
+
+  .countryInfo h2 {
+
+    font-size: 42px;
+
+  }
+
+  .atlasGrid {
+
+    grid-template-columns: 1fr;
+
+    gap: var(--content-gap-mobile);
+
+  }
+
+}
+ 
+@media (max-width: 700px) {
+
+  .economyHero,
+  .climateHero,
+  .mobilityHero,
+  .lifestyleHero,
+  .pulseHero,
+  .atlasHero {
+
+    gap: 70px;
+
+  }
+
+}

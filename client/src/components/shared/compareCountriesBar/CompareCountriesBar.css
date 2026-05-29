@@ -1,0 +1,38 @@
+.compareCountriesBar {
+
+  max-width: 1200px;
+
+  margin: 0 auto 60px auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+
+}
+
+.compareCountriesBar span {
+
+  font-size: 13px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.62);
+
+  font-family: var(--font-family);
+
+}
+
+.compareBarLine {
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    var(--color-border);
+
+}
