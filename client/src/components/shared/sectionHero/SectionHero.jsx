@@ -1,4 +1,5 @@
 import "./SectionHero.css";
+import DataBadge from "../dataBadge/DataBadge";
 
 function SectionHero({
   leftLabel,
@@ -6,7 +7,10 @@ function SectionHero({
   summary,
   rightLabel,
   rightValue,
-  compareMode = false
+  compareMode = false,
+  source,
+  year,
+  indicator
 }) {
 
   return (
@@ -26,6 +30,8 @@ function SectionHero({
         <h1>
           {leftValue}
         </h1>
+
+        {source && <DataBadge source={source} year={year} indicator={indicator} />}
 
       </div>
 
@@ -49,6 +55,8 @@ function SectionHero({
             {rightValue}
           </h1>
 
+          {source && <DataBadge source={source} year={year} indicator={indicator} />}
+
         </div>
 
       )}
@@ -59,4 +67,4 @@ function SectionHero({
 
 }
 
-export default SectionHero;
+export default SectionHero;

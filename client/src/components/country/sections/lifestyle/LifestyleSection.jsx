@@ -1,16 +1,9 @@
 import "./LifestyleSection.css";
-
-import CompareMetric
-  from "../../../shared/compareMetric/CompareMetric";
-
-import SectionHero
-  from "../../../shared/sectionHero/SectionHero";
-
-import SectionHeader
-  from "../../../shared/sectionHeader/SectionHeader";
-
-import InsightBlock
-  from "../../../shared/insightBlock/InsightBlock";
+import CompareMetric from "../../../shared/compareMetric/CompareMetric";
+import SectionHero from "../../../shared/sectionHero/SectionHero";
+import SectionHeader from "../../../shared/sectionHeader/SectionHeader";
+import InsightBlock from "../../../shared/insightBlock/InsightBlock";
+import { METRIC_META } from "../../../../data/metricMeta";
 
 function LifestyleSection({
   country,
@@ -21,43 +14,38 @@ function LifestyleSection({
   if (!country) return null;
 
   const metrics = [
-
     {
       label: "Healthcare Quality",
       leftValue: country.lifestyle.healthcare,
       rightValue: compareCountry?.lifestyle.healthcare
     },
-
     {
       label: "Education Index",
       leftValue: country.lifestyle.education,
-      rightValue: compareCountry?.lifestyle.education
+      rightValue: compareCountry?.lifestyle.education,
+      ...METRIC_META.education
     },
-
     {
       label: "Internet Accessibility",
       leftValue: country.lifestyle.internet,
-      rightValue: compareCountry?.lifestyle.internet
+      rightValue: compareCountry?.lifestyle.internet,
+      ...METRIC_META.internet
     },
-
     {
       label: "Public Safety",
       leftValue: country.lifestyle.safety,
       rightValue: compareCountry?.lifestyle.safety
     },
-
     {
       label: "Work-Life Balance",
       leftValue: country.lifestyle.workLife,
       rightValue: compareCountry?.lifestyle.workLife
     },
-
     {
       label: "Cost of Living",
       leftValue: country.lifestyle.costOfLiving,
       rightValue: compareCountry?.lifestyle.costOfLiving
     }
-
   ];
 
   return (
@@ -86,6 +74,9 @@ function LifestyleSection({
         rightLabel="Happiness Score"
         rightValue={compareCountry?.lifestyle.happiness}
         compareMode={compareMode}
+        source={METRIC_META.happiness.source}
+        year={METRIC_META.happiness.year}
+        indicator={METRIC_META.happiness.indicator}
       />
 
       <div className="sectionContentGrid lifestyleGrid">
@@ -101,6 +92,9 @@ function LifestyleSection({
               leftCountry={country.atlas.name}
               rightCountry={compareCountry?.atlas.name}
               compareMode={compareMode}
+              source={metric.source}
+              year={metric.year}
+              indicator={metric.indicator}
             />
 
           ))

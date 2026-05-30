@@ -1,10 +1,7 @@
 import "./atlasSection.css";
-
-import CompareMetric
-from "../../../shared/compareMetric/CompareMetric";
-
-import CompareCountriesBar
-from "../../../shared/compareCountriesBar/CompareCountriesBar";
+import CompareMetric from "../../../shared/compareMetric/CompareMetric";
+import CompareCountriesBar from "../../../shared/compareCountriesBar/CompareCountriesBar";
+import { METRIC_META } from "../../../../data/metricMeta";
 
 function AtlasSection({
     country,
@@ -146,28 +143,26 @@ function AtlasSection({
 
         <CompareMetric
             label="Population"
-            leftValue={
-                country.atlas.population.toLocaleString()
-            }
-            rightValue={
-                compareCountry?.atlas.population.toLocaleString()
-            }
+            leftValue={country.atlas.population.toLocaleString()}
+            rightValue={compareCountry?.atlas.population.toLocaleString()}
             leftCountry={country.atlas.name}
             rightCountry={compareCountry?.atlas.name}
             compareMode={compareMode}
+            source={METRIC_META.population.source}
+            year={METRIC_META.population.year}
+            indicator={METRIC_META.population.indicator}
         />
 
         <CompareMetric
             label="Area"
-            leftValue={
-                `${country.atlas.area.toLocaleString()} km²`
-            }
-            rightValue={
-                `${compareCountry?.atlas.area.toLocaleString()} km²`
-            }
+            leftValue={`${country.atlas.area.toLocaleString()} km²`}
+            rightValue={`${compareCountry?.atlas.area.toLocaleString()} km²`}
             leftCountry={country.atlas.name}
             rightCountry={compareCountry?.atlas.name}
             compareMode={compareMode}
+            source={METRIC_META.area.source}
+            year={METRIC_META.area.year}
+            indicator={METRIC_META.area.indicator}
         />
 
         <CompareMetric

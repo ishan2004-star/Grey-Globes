@@ -1,39 +1,581 @@
+/* ═══════════════════════════════════════════════
+   ANALYZE PAGE  —  Glassmorphism + Swiss Modernism + Halftone
+   ═══════════════════════════════════════════════ */
+
 .analyzePage {
-
   min-height: 100vh;
-
   width: 100%;
-
   position: relative;
-
   overflow-x: hidden;
-
+  background-color: var(--color-background);
 }
-
 
 .analyzePage::before {
-
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   background: rgba(0, 0, 0, 0.32);
-
   backdrop-filter: blur(3px);
-
   -webkit-backdrop-filter: blur(3px);
-
   z-index: 0;
-
 }
 
+/* ── Halftone overlay ── */
+.analyzeHalftone {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
 
-.analyzePage > * {
-
+.analyzeContent {
   position: relative;
-
   z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
 
+/* ═══════════ HERO ═══════════ */
+.analyzeHero {
+  text-align: center;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.analyzeEyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-family);
+  text-transform: uppercase;
+}
+
+.analyzeHero h1 {
+  font-size: 76px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  margin: 0;
+  line-height: 1;
+}
+
+.analyzeHero p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.75;
+  font-family: var(--font-family);
+  margin: 0;
+  max-width: 620px;
+  align-self: center;
+}
+
+/* ═══════════ CONTROLS ═══════════ */
+.analyzeControlsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.analyzeControls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 10px 10px 10px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 20px;
+}
+
+.controlLabel {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.35);
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  padding-left: 2px;
+}
+
+.controlDivider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  align-self: center;
+  margin: 0 8px;
+}
+
+/* ═══════════ CUSTOM DROPDOWN ═══════════ */
+.customDropdown {
+  position: relative;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-width: 180px;
+}
+
+.dropdownTrigger:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.dropdownTrigger.dropdownOpen {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.dropdownChevron {
+  color: rgba(255,255,255,0.5);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown Panel (the open list) ── */
+.dropdownPanel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  min-width: 240px;
+  animation: panelIn 0.18s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+.dropdownPanelInner {
+  background: rgba(10, 14, 28, 0.92);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow:
+    0 24px 64px rgba(0,0,0,0.55),
+    0 2px 8px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+
+  /* halftone inside panel */
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(rgba(10,14,28,0.92), rgba(10,14,28,0.92));
+  background-size: 14px 14px, 100% 100%;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  color: rgba(255,255,255,0.75);
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.dropdownItem:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+.dropdownItemActive {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-weight: 600;
+}
+
+.dropdownItemDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+
+.dropdownItemActive .dropdownItemDot {
+  background: #fff;
+}
+
+.dropdownItemCheck {
+  margin-left: auto;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0)      scale(1);    }
+}
+
+/* ═══════════ ANALYZE BUTTON ═══════════ */
+.analyzeBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.95);
+  color: #000;
+  border: none;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.analyzeBtn:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(255,255,255,0.18);
+}
+
+/* ═══════════ RESULTS ═══════════ */
+.analyzeResultsSection {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Empty state ── */
+.analyzeEmptyState {
+  margin-top: 60px;
+  padding: 52px 40px;
+  text-align: center;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed rgba(255,255,255,0.13);
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.emptyStateIcon {
+  font-size: 36px;
+  color: rgba(255,255,255,0.2);
+  line-height: 1;
+}
+
+.analyzeEmptyState p {
+  color: rgba(255,255,255,0.55);
+  font-size: 15px;
+  font-family: var(--font-family);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.analyzeEmptyState strong {
+  color: rgba(255,255,255,0.85);
+}
+
+.analyzeLoading {
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* ═══════════ RANKING LIST ═══════════ */
+.rankingList {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.rankingHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 18px;
+}
+
+.rankingTitle {
+  font-size: 26px;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.rankingCount {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.35);
+  font-family: var(--font-family);
+  text-transform: uppercase;
+}
+
+.rankingGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Individual Ranking Card ── */
+.rankingCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 28px 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+  animation: cardIn 0.4s ease-out both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.rankingCard:hover {
+  transform: translateX(6px);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.16);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+/* top row inside card */
+.rankBadge {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: var(--font-family);
+  color: rgba(255,255,255,0.3);
+  min-width: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.rankMedal {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.rankDetails {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rankCountryInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rankFlagWrap {
+  width: 44px;
+  height: 30px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+
+.rankFlag {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rankCountryName {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  letter-spacing: -0.2px;
+}
+
+.rankValueGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.rankMetricValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  letter-spacing: -0.5px;
+}
+
+.rankCitation {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rankSource {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--font-family);
+  letter-spacing: 0.3px;
+}
+
+/* Age dot: green = fresh (≤1yr), yellow = stale (1-2yr), red = old (>2yr) */
+.dataDot {
+  font-size: 9px;
+  line-height: 1;
+}
+.dataDot--fresh  { color: #4ade80; }
+.dataDot--stale  { color: #facc15; }
+.dataDot--old    { color: #f87171; }
+
+/* proportional bar */
+.rankBarTrack {
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.rankBar {
+  height: 100%;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.35);
+  transition: width 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* ── Medal card overrides ── */
+.rankingCard.goldRank {
+  background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,215,0,0.04));
+  border: 1px solid rgba(255,215,0,0.28);
+  box-shadow: 0 8px 32px rgba(255,215,0,0.08);
+}
+.rankingCard.goldRank .rankBadge  { color: #ffd700; }
+.rankingCard.goldRank .rankBar    { background: rgba(255,215,0,0.6); }
+
+.rankingCard.silverRank {
+  background: linear-gradient(135deg, rgba(192,192,192,0.12), rgba(192,192,192,0.04));
+  border: 1px solid rgba(192,192,192,0.25);
+}
+.rankingCard.silverRank .rankBadge { color: #c0c0c0; }
+.rankingCard.silverRank .rankBar   { background: rgba(192,192,192,0.5); }
+
+.rankingCard.bronzeRank {
+  background: linear-gradient(135deg, rgba(205,127,50,0.12), rgba(205,127,50,0.04));
+  border: 1px solid rgba(205,127,50,0.25);
+}
+.rankingCard.bronzeRank .rankBadge { color: #cd7f32; }
+.rankingCard.bronzeRank .rankBar   { background: rgba(205,127,50,0.5); }
+
+/* ═══════════ LOAD MORE ═══════════ */
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.loadMoreBtn {
+  background: transparent !important;
+  color: var(--color-primary) !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  font-weight: 500 !important;
+}
+
+.loadMoreBtn:hover {
+  background: rgba(255,255,255,0.08) !important;
+  box-shadow: none !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ═══════════ ANIMATIONS ═══════════ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 768px) {
+  .analyzeHero h1 { font-size: 48px; letter-spacing: -1px; }
+  .analyzeHero p  { font-size: 15px; }
+
+  .analyzeControls {
+    flex-direction: column;
+    border-radius: 24px;
+    padding: 20px;
+    width: 100%;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .controlDivider { width: 100%; height: 1px; margin: 4px 0; }
+  .controlGroup   { padding: 0; }
+  .dropdownTrigger { min-width: unset; width: 100%; justify-content: space-between; }
+  .dropdownPanel  { left: 0; transform: none; min-width: 100%; }
+
+  .analyzeBtn { width: 100%; justify-content: center; }
+
+  .rankingCard { padding: 16px 20px 12px; }
+  .rankDetails { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .rankMetricValue { align-self: flex-start; }
 }

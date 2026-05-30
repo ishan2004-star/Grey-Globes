@@ -1,16 +1,9 @@
 import "./economySection.css";
-
-import CompareMetric
-from "../../../shared/compareMetric/CompareMetric";
-
-import SectionHero
-from "../../../shared/sectionHero/SectionHero";
-
-import SectionHeader
-from "../../../shared/sectionHeader/SectionHeader";
-
-import InsightBlock
-from "../../../shared/insightBlock/InsightBlock";
+import CompareMetric from "../../../shared/compareMetric/CompareMetric";
+import SectionHero from "../../../shared/sectionHero/SectionHero";
+import SectionHeader from "../../../shared/sectionHeader/SectionHeader";
+import InsightBlock from "../../../shared/insightBlock/InsightBlock";
+import { METRIC_META } from "../../../../data/metricMeta";
 
 function EconomySection({
   country,
@@ -21,31 +14,30 @@ function EconomySection({
   if (!country) return null;
 
   const metrics = [
-
     {
       label: "GDP Per Capita",
       leftValue: country.economy.gdpPerCapita,
-      rightValue: compareCountry?.economy.gdpPerCapita
+      rightValue: compareCountry?.economy.gdpPerCapita,
+      ...METRIC_META.gdpPerCapita
     },
-
     {
       label: "Inflation Rate",
       leftValue: country.economy.inflation,
-      rightValue: compareCountry?.economy.inflation
+      rightValue: compareCountry?.economy.inflation,
+      ...METRIC_META.inflation
     },
-
     {
       label: "Unemployment",
       leftValue: country.economy.unemployment,
-      rightValue: compareCountry?.economy.unemployment
+      rightValue: compareCountry?.economy.unemployment,
+      ...METRIC_META.unemployment
     },
-
     {
       label: "Workforce Status",
       leftValue: country.economy.workforce,
       rightValue: compareCountry?.economy.workforce
+      // no meta — derived field
     }
-
   ];
 
   return (
@@ -74,6 +66,9 @@ function EconomySection({
     rightLabel="Comparison GDP"
     rightValue={compareCountry?.economy.gdp}
     compareMode={compareMode}
+    source={METRIC_META.gdp.source}
+    year={METRIC_META.gdp.year}
+    indicator={METRIC_META.gdp.indicator}
   />
 
   <div className="sectionContentGrid economyGrid">
@@ -89,6 +84,9 @@ function EconomySection({
           leftCountry={country.atlas.name}
           rightCountry={compareCountry?.atlas.name}
           compareMode={compareMode}
+          source={metric.source}
+          year={metric.year}
+          indicator={metric.indicator}
         />
 
       ))

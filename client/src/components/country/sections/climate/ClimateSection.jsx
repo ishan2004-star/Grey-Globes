@@ -1,13 +1,9 @@
 import "./climateSection.css";
-
-import CompareMetric
-from "../../../shared/compareMetric/CompareMetric";
-
-import SectionHero
-from "../../../shared/sectionHero/SectionHero";
-
-import SectionHeader
-from "../../../shared/sectionHeader/SectionHeader";
+import CompareMetric from "../../../shared/compareMetric/CompareMetric";
+import SectionHero from "../../../shared/sectionHero/SectionHero";
+import SectionHeader from "../../../shared/sectionHeader/SectionHeader";
+import DataBadge from "../../../shared/dataBadge/DataBadge";
+import { METRIC_META } from "../../../../data/metricMeta";
 
 function ClimateSection({
   country,
@@ -18,31 +14,30 @@ function ClimateSection({
   if (!country) return null;
 
   const metrics = [
-
     {
       label: "Average Temperature",
       leftValue: country.climate.avgTemp,
-      rightValue: compareCountry?.climate.avgTemp
+      rightValue: compareCountry?.climate.avgTemp,
+      ...METRIC_META.avgTemp
     },
-
     {
-      label: "Air Quality",
+      label: "Air Quality Index",
       leftValue: country.climate.airQuality,
-      rightValue: compareCountry?.climate.airQuality
+      rightValue: compareCountry?.climate.airQuality,
+      ...METRIC_META.aqi
     },
-
     {
       label: "Renewable Energy",
       leftValue: country.climate.renewableEnergy,
-      rightValue: compareCountry?.climate.renewableEnergy
+      rightValue: compareCountry?.climate.renewableEnergy,
+      ...METRIC_META.renewableEnergy
     },
-
     {
       label: "CO₂ Emissions",
       leftValue: country.climate.emissions,
-      rightValue: compareCountry?.climate.emissions
+      rightValue: compareCountry?.climate.emissions,
+      ...METRIC_META.co2Emissions
     }
-
   ];
 
   return (
@@ -86,6 +81,9 @@ function ClimateSection({
           leftCountry={country.atlas.name}
           rightCountry={compareCountry?.atlas.name}
           compareMode={compareMode}
+          source={metric.source}
+          year={metric.year}
+          indicator={metric.indicator}
         />
 
       ))
@@ -100,6 +98,12 @@ function ClimateSection({
       <h1>
         {country.climate.forestCoverage}
       </h1>
+
+      <DataBadge
+        source={METRIC_META.forestCoverage.source}
+        year={METRIC_META.forestCoverage.year}
+        indicator={METRIC_META.forestCoverage.indicator}
+      />
 
       <p>
         Dense mountainous forest regions with

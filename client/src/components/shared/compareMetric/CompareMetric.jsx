@@ -1,4 +1,5 @@
 import "./CompareMetric.css";
+import DataBadge from "../dataBadge/DataBadge";
 
 function CompareMetric({
   label,
@@ -6,7 +7,10 @@ function CompareMetric({
   rightValue,
   leftCountry,
   rightCountry,
-  compareMode = false
+  compareMode = false,
+  source,
+  year,
+  indicator
 }) {
 
   return (
@@ -16,6 +20,8 @@ function CompareMetric({
       <span className="compareMetricLabel">
         {label}
       </span>
+
+      {source && <DataBadge source={source} year={year} indicator={indicator} />}
 
       {!compareMode && (
 

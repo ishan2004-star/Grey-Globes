@@ -1,0 +1,33 @@
+.dataBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.dataBadgeDot {
+  font-size: 8px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.dataBadgeDot--fresh  { color: #4ade80; }
+.dataBadgeDot--stale  { color: #facc15; }
+.dataBadgeDot--old    { color: #f87171; }
+
+.dataBadgeText {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--font-family);
+  letter-spacing: 0.2px;
+}
+
+.dataBadgeAge {
+  font-size: 10px;
+  font-family: var(--font-family);
+}
+
+.dataBadgeAge--fresh  { color: rgba(74, 222, 128, 0.55); }
+.dataBadgeAge--stale  { color: rgba(250, 204, 21, 0.55);  }
+.dataBadgeAge--old    { color: rgba(248, 113, 113, 0.55); }
