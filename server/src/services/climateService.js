@@ -1,17 +1,18 @@
-async function fetchClimateData(lat, lng) {
+const axios = require("axios");
 
+const fetchClimateData = async (
+  lat,
+  lng
+) => {
   try {
 
-    const response = await fetch(
-
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,relative_humidity_2m,wind_speed_10m`
-
-    );
-
-    const data = await response.json();
+    const response =
+      await axios.get(
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,relative_humidity_2m,wind_speed_10m`
+      );
 
     const current =
-      data.current;
+      response.data.current;
 
     return {
 
@@ -47,7 +48,7 @@ async function fetchClimateData(lat, lng) {
 
   } catch (error) {
 
-    console.log(error);
+    console.error(error);
 
     return {
 
@@ -78,7 +79,8 @@ async function fetchClimateData(lat, lng) {
     };
 
   }
+};
 
-}
-
-export default fetchClimateData;
+module.exports = {
+  fetchClimateData,
+};

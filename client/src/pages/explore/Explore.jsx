@@ -10,17 +10,8 @@ import CountryProfile from "../../components/country/countryprofile/CountryProfi
 
 import CountrySkeleton from "../../components/country/countryskeleton/CountrySkeleton";
 
-import fetchCountryData from "../../services/fetchCountryData";
+import fetchIntelligenceData from "../../services/fetchIntelligenceData";
 
-import fetchEconomyData from "../../services/fetchEconomyData";
-
-import fetchClimateData from "../../services/fetchClimateData";
-
-import fetchLifestyleData from "../../services/fetchLifestyleData";
-
-import fetchMobilityData from "../../services/fetchMobilityData";
-
-import fetchPulseData from "../../services/fetchPulseData";
 function Explore() {
 
   const [selectedCountry, setSelectedCountry] =
@@ -46,7 +37,7 @@ function Explore() {
     setTimeout(async () => {
 
       const countryData =
-        await fetchCountryData(
+        await fetchIntelligenceData(
           formattedQuery
         );
 
@@ -62,54 +53,11 @@ function Explore() {
 
       }
 
-      const economyData =
-        await fetchEconomyData(
-          countryData.atlas.code
-        );
+      setSelectedCountry(
+        countryData
+      );
 
-      const climateData =
-        await fetchClimateData(
-
-          countryData.atlas.lat,
-
-          countryData.atlas.lng
-
-        );
-
-      const lifestyleData =
-        await fetchLifestyleData({
-
-          ...countryData,
-
-          economy: economyData
-
-        });
-
-      const mobilityData =
-        await fetchMobilityData({
-
-          ...countryData,
-
-          economy: economyData,
-
-          lifestyle: lifestyleData
-
-        });
-
-      const pulseData =
-        await fetchPulseData({
-
-          ...countryData,
-
-          economy: economyData,
-
-          climate: climateData,
-
-          lifestyle: lifestyleData,
-
-          mobility: mobilityData
-
-        });
+      setLoading(false);
 
 
       setSelectedCountry({

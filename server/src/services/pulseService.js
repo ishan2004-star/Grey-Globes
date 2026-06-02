@@ -1,21 +1,10 @@
-async function fetchPulseData(countryData) {
-
+const fetchPulseData = async (
+  countryData
+) => {
   try {
 
     const region =
       countryData.atlas.region;
-
-    const gdp =
-      countryData.economy.gdp;
-
-    const unemployment =
-      countryData.economy.unemployment;
-
-    const internet =
-      countryData.lifestyle.internet;
-
-    const immigration =
-      countryData.mobility.immigration;
 
     let pulse =
       "Strategically developing nation with balanced economic growth and expanding international connectivity.";
@@ -144,7 +133,7 @@ async function fetchPulseData(countryData) {
 
   } catch (error) {
 
-    console.log(error);
+    console.error(error);
 
     return {
 
@@ -172,7 +161,8 @@ async function fetchPulseData(countryData) {
     };
 
   }
+};
 
-}
-
-export default fetchPulseData;
+module.exports = {
+  fetchPulseData,
+};

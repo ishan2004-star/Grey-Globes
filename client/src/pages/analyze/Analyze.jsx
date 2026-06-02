@@ -8,7 +8,7 @@ import { availableMetrics, fetchAllAndAnalyze } from "../../services/analyzeServ
 
 const DIRECTIONS = [
   { id: "desc", label: "Highest First" },
-  { id: "asc",  label: "Lowest First"  },
+  { id: "asc", label: "Lowest First" },
 ];
 
 /* ── Custom Dropdown ───────────────────────────────────────── */
@@ -32,7 +32,7 @@ function CustomDropdown({ options, value, onChange, placeholder }) {
       >
         <span>{selected ? selected.label : placeholder}</span>
         <svg className={`dropdownChevron ${open ? "chevronUp" : ""}`} width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M2.5 5L7 9.5L11.5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M2.5 5L7 9.5L11.5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
 
@@ -60,12 +60,12 @@ function CustomDropdown({ options, value, onChange, placeholder }) {
 
 /* ── Main Page ─────────────────────────────────────────────── */
 function Analyze() {
-  const [metric,      setMetric]      = useState(availableMetrics[0].id);
-  const [direction,   setDirection]   = useState("desc");
-  const [results,     setResults]     = useState(null);
-  const [allData,     setAllData]     = useState([]);
-  const [visibleCount,setVisibleCount]= useState(10);
-  const [loading,     setLoading]     = useState(false);
+  const [metric, setMetric] = useState(availableMetrics[0].id);
+  const [direction, setDirection] = useState("desc");
+  const [results, setResults] = useState(null);
+  const [allData, setAllData] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(10);
+  const [loading, setLoading] = useState(false);
 
   const handleAnalyze = () => {
     setLoading(true);
@@ -73,8 +73,12 @@ function Analyze() {
     setAllData([]);
     setVisibleCount(10);
 
-    setTimeout(() => {
-      const data = fetchAllAndAnalyze(metric, direction);
+    setTimeout(async () => {
+      const data =
+        await fetchAllAndAnalyze(
+          metric,
+          direction
+        );
       setAllData(data);
       setResults({ metric: availableMetrics.find(m => m.id === metric) });
       setLoading(false);
@@ -134,7 +138,7 @@ function Analyze() {
             <button className="analyzeBtn" onClick={handleAnalyze}>
               <span>Analyze</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
 
@@ -202,8 +206,8 @@ function Analyze() {
                           <div className="rankCitation">
                             <span className={`dataDot dataDot--${item.ageClass}`} title={
                               item.ageClass === "fresh" ? "Data from last year"
-                              : item.ageClass === "stale" ? "Data is 2 years old"
-                              : "Data is 3+ years old"
+                                : item.ageClass === "stale" ? "Data is 2 years old"
+                                  : "Data is 3+ years old"
                             }>●</span>
                             <span className="rankSource">{item.source}, {item.year}</span>
                           </div>
@@ -226,7 +230,7 @@ function Analyze() {
                   <button className="analyzeBtn loadMoreBtn" onClick={handleLoadMore}>
                     <span>Next 10 Countries</span>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
                 </div>

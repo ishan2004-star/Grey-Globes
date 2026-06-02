@@ -1,25 +1,17 @@
-async function fetchLifestyleData(countryData) {
-
+const fetchLifestyleData = async (
+  countryData
+) => {
   try {
 
     const region =
       countryData.atlas.region;
 
-    const gdp =
-      countryData.economy.gdpPerCapita;
-
     let happiness = "7.2";
-
     let healthcare = "Advanced";
-
     let education = "High";
-
     let internet = "Excellent";
-
     let safety = "Stable";
-
     let workLife = "Balanced";
-
     let costOfLiving = "Moderate";
 
     let mobilitySummary =
@@ -28,17 +20,11 @@ async function fetchLifestyleData(countryData) {
     if (region === "Europe") {
 
       happiness = "7.8";
-
       healthcare = "World-Class";
-
       education = "Advanced";
-
       internet = "Exceptional";
-
       safety = "High";
-
       workLife = "Excellent";
-
       costOfLiving = "High";
 
     }
@@ -46,17 +32,11 @@ async function fetchLifestyleData(countryData) {
     if (region === "Asia") {
 
       happiness = "6.9";
-
       healthcare = "Strong";
-
       education = "Competitive";
-
       internet = "Highly Connected";
-
       safety = "Moderate";
-
       workLife = "Demanding";
-
       costOfLiving = "Variable";
 
     }
@@ -64,17 +44,11 @@ async function fetchLifestyleData(countryData) {
     if (region === "Africa") {
 
       happiness = "5.8";
-
       healthcare = "Developing";
-
       education = "Emerging";
-
       internet = "Expanding";
-
       safety = "Variable";
-
       workLife = "Dynamic";
-
       costOfLiving = "Affordable";
 
     }
@@ -82,17 +56,11 @@ async function fetchLifestyleData(countryData) {
     if (region === "Americas") {
 
       happiness = "7.1";
-
       healthcare = "Advanced";
-
       education = "Strong";
-
       internet = "Excellent";
-
       safety = "Moderate";
-
       workLife = "Fast-Paced";
-
       costOfLiving = "Elevated";
 
     }
@@ -100,57 +68,37 @@ async function fetchLifestyleData(countryData) {
     return {
 
       happiness,
-
       healthcare,
-
       education,
-
       internet,
-
       safety,
-
       workLife,
-
       costOfLiving,
-
-      mobilitySummary
+      mobilitySummary,
 
     };
 
   } catch (error) {
 
-    console.log(error);
+    console.error(error);
 
     return {
 
-      happiness:
-        "Unavailable",
-
-      healthcare:
-        "Unavailable",
-
-      education:
-        "Unavailable",
-
-      internet:
-        "Unavailable",
-
-      safety:
-        "Unavailable",
-
-      workLife:
-        "Unavailable",
-
-      costOfLiving:
-        "Unavailable",
-
+      happiness: "Unavailable",
+      healthcare: "Unavailable",
+      education: "Unavailable",
+      internet: "Unavailable",
+      safety: "Unavailable",
+      workLife: "Unavailable",
+      costOfLiving: "Unavailable",
       mobilitySummary:
-        "Lifestyle intelligence unavailable."
+        "Lifestyle intelligence unavailable.",
 
     };
 
   }
+};
 
-}
-
-export default fetchLifestyleData;
+module.exports = {
+  fetchLifestyleData,
+};
