@@ -13,6 +13,7 @@ import ClimateSection from "../../components/country/sections/climate/ClimateSec
 import MobilitySection from "../../components/country/sections/mobility/MobilitySection";
 import LifestyleSection from "../../components/country/sections/lifestyle/LifestyleSection";
 import PulseSection from "../../components/country/sections/pulse/PulseSection";
+import NewsSection from "../../components/country/sections/news/NewsSection";
 
 import fetchCompareData
 from "../../services/fetchCompareData";
@@ -66,7 +67,9 @@ function Compare() {
 
     if (
       leftData &&
-      rightData
+      rightData &&
+      leftData.success !== false &&
+      rightData.success !== false
     ) {
 
       setLeftCountry(leftData);
@@ -147,6 +150,12 @@ function Compare() {
           />
 
           <PulseSection
+            country={leftCountry}
+            compareCountry={rightCountry}
+            compareMode={true}
+          />
+
+          <NewsSection
             country={leftCountry}
             compareCountry={rightCountry}
             compareMode={true}

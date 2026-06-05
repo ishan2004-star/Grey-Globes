@@ -19,13 +19,26 @@ export const METRIC_META = {
   currency:      { source: "ISO 4217",        year: 2023, indicator: "ISO 4217" },
   languages:     { source: "Ethnologue",      year: 2023, indicator: "Language Survey" },
   timezone:      { source: "IANA",            year: 2023, indicator: "IANA tz database" },
-  forestCoverage:{ source: "FAO",             year: 2022, indicator: "FRA 2020" },
+  forestCoverage:{ source: "FAO / World Bank",year: 2022, indicator: "AG.LND.FRST.ZS" },
+
+  // Phase 3A — Geography
+  borders:       { source: "REST Countries",  year: 2024, indicator: "ISO 3166-1 alpha-3" },
+  coordinates:   { source: "REST Countries",  year: 2024, indicator: "Geographic" },
+  landlocked:    { source: "REST Countries",  year: 2024, indicator: "Geographic" },
+
+  // Phase 3A — Demographics
+  populationGrowth: { source: "World Bank",   year: 2023, indicator: "SP.POP.GROW" },
+  birthRate:     { source: "World Bank",      year: 2023, indicator: "SP.DYN.CBRT.IN" },
+  deathRate:     { source: "World Bank",      year: 2023, indicator: "SP.DYN.CDRT.IN" },
 
   /* ── Economy ─────────────────────────────────── */
   gdp:           { source: "World Bank",      year: 2023, indicator: "NY.GDP.MKTP.CD" },
   gdpPerCapita:  { source: "World Bank",      year: 2023, indicator: "NY.GDP.PCAP.CD" },
   inflation:     { source: "IMF",             year: 2023, indicator: "PCPIPCH" },
   unemployment:  { source: "World Bank",      year: 2023, indicator: "SL.UEM.TOTL.ZS" },
+
+  // Phase 3A — Economy
+  gdpGrowthRate: { source: "World Bank",      year: 2023, indicator: "NY.GDP.MKTP.KD.ZG" },
 
   /* ── Climate / Environment ───────────────────── */
   avgTemp:       { source: "Open-Meteo",      year: 2024, indicator: "Live API" },
@@ -38,6 +51,32 @@ export const METRIC_META = {
   education:     { source: "UNDP",            year: 2022, indicator: "HDI Education Index" },
   internet:      { source: "ITU / World Bank",year: 2023, indicator: "IT.NET.USER.ZS" },
   lifeExpectancy:{ source: "World Bank",      year: 2022, indicator: "SP.DYN.LE00.IN" },
+
+  // Phase 3A — Human Development
+  hdi:           { source: "UNDP",            year: 2022, indicator: "Human Development Index" },
+  educationIndex:{ source: "UNDP",            year: 2022, indicator: "Education Index" },
+
+  // Phase 3A — Cost of Living
+  costOfLivingIndex: { source: "Numbeo",      year: 2024, indicator: "Cost of Living Index" },
+  rentIndex:     { source: "Numbeo",          year: 2024, indicator: "Rent Index" },
+  groceryIndex:  { source: "Numbeo",          year: 2024, indicator: "Grocery Index" },
+  restaurantIndex:{ source: "Numbeo",         year: 2024, indicator: "Restaurant Price Index" },
+
+  // Phase 3A — Safety
+  safetyIndex:   { source: "Numbeo",          year: 2024, indicator: "Safety Index" },
+  crimeIndex:    { source: "Numbeo",          year: 2024, indicator: "Crime Index" },
+
+  // Phase 3A — Education
+  literacyRate:  { source: "World Bank",      year: 2022, indicator: "SE.ADT.LITR.ZS" },
+  schoolEnrollment:{ source: "World Bank",    year: 2022, indicator: "SE.PRM.ENRR" },
+
+  // Phase 3A — Technology
+  internetUsers: { source: "World Bank",      year: 2023, indicator: "IT.NET.USER.ZS" },
+
+  // Phase 3A — Society
+  officialName:  { source: "REST Countries",  year: 2024, indicator: "Official Name" },
+  drivingSide:   { source: "REST Countries",  year: 2024, indicator: "Driving Side" },
+  demonym:       { source: "REST Countries",  year: 2024, indicator: "Demonym" },
 
   /* ── Pulse / Innovation ──────────────────────── */
   pulseScore:    { source: "Grey Globes",     year: 2024, indicator: "Composite Index" },

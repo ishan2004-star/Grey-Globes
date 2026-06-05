@@ -50,6 +50,26 @@ const fetchCountryDetails = async (countryName) => {
 
         forestCoverage:
           "Data unavailable",
+
+        // Phase 3A — Geography
+        borders: country.borders?.length
+          ? country.borders.join(", ")
+          : "None (Island Nation)",
+
+        coordinates: country.latlng?.length === 2
+          ? `${country.latlng[0].toFixed(2)}°, ${country.latlng[1].toFixed(2)}°`
+          : "Data Not Available",
+
+        landlocked: country.landlocked
+          ? "Yes"
+          : "No",
+
+        // Phase 3A — Society
+        drivingSide: country.car?.side
+          ? country.car.side.charAt(0).toUpperCase() + country.car.side.slice(1)
+          : "Data Not Available",
+
+        demonym: country.demonyms?.eng?.m || "Data Not Available",
       },
 
     };

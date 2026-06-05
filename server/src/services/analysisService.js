@@ -32,6 +32,52 @@ const METRICS = {
         source: "Rest Countries",
     },
 
+    // Phase 3A metrics
+    gdpGrowthRate: {
+        indicator: "NY.GDP.MKTP.KD.ZG",
+        source: "World Bank",
+    },
+
+    populationGrowth: {
+        indicator: "SP.POP.GROW",
+        source: "World Bank",
+    },
+
+    birthRate: {
+        indicator: "SP.DYN.CBRT.IN",
+        source: "World Bank",
+    },
+
+    deathRate: {
+        indicator: "SP.DYN.CDRT.IN",
+        source: "World Bank",
+    },
+
+    forestCoverage: {
+        indicator: "AG.LND.FRST.ZS",
+        source: "World Bank",
+    },
+
+    literacyRate: {
+        indicator: "SE.ADT.LITR.ZS",
+        source: "World Bank",
+    },
+
+    schoolEnrollment: {
+        indicator: "SE.PRM.ENRR",
+        source: "World Bank",
+    },
+
+    internetUsers: {
+        indicator: "IT.NET.USER.ZS",
+        source: "World Bank",
+    },
+
+    unemployment: {
+        indicator: "SL.UEM.TOTL.ZS",
+        source: "World Bank",
+    },
+
 };
 
 
@@ -61,9 +107,22 @@ const formatValue = (
             )} yrs`;
 
         case "inflation":
+        case "gdpGrowthRate":
+        case "populationGrowth":
+        case "forestCoverage":
+        case "literacyRate":
+        case "schoolEnrollment":
+        case "internetUsers":
+        case "unemployment":
             return `${value.toFixed(
                 1
             )}%`;
+
+        case "birthRate":
+        case "deathRate":
+            return `${value.toFixed(
+                1
+            )} per 1,000`;
 
         default:
             return value;

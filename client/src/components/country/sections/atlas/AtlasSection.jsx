@@ -143,8 +143,8 @@ function AtlasSection({
 
         <CompareMetric
             label="Population"
-            leftValue={country.atlas.population.toLocaleString()}
-            rightValue={compareCountry?.atlas.population.toLocaleString()}
+            leftValue={country.atlas.population?.toLocaleString?.() || country.atlas.population}
+            rightValue={compareCountry?.atlas.population?.toLocaleString?.() || compareCountry?.atlas.population}
             leftCountry={country.atlas.name}
             rightCountry={compareCountry?.atlas.name}
             compareMode={compareMode}
@@ -155,8 +155,8 @@ function AtlasSection({
 
         <CompareMetric
             label="Area"
-            leftValue={`${country.atlas.area.toLocaleString()} km²`}
-            rightValue={`${compareCountry?.atlas.area.toLocaleString()} km²`}
+            leftValue={`${country.atlas.area?.toLocaleString?.()} km²`}
+            rightValue={compareCountry ? `${compareCountry.atlas.area?.toLocaleString?.()} km²` : undefined}
             leftCountry={country.atlas.name}
             rightCountry={compareCountry?.atlas.name}
             compareMode={compareMode}
@@ -210,6 +210,110 @@ function AtlasSection({
             compareMode={compareMode}
         />
 
+        {/* Phase 3A — Geography */}
+        <CompareMetric
+            label="Borders"
+            leftValue={country.atlas.borders || "Data Not Available"}
+            rightValue={compareCountry?.atlas.borders || "Data Not Available"}
+            leftCountry={country.atlas.name}
+            rightCountry={compareCountry?.atlas.name}
+            compareMode={compareMode}
+            source={METRIC_META.borders.source}
+            year={METRIC_META.borders.year}
+            indicator={METRIC_META.borders.indicator}
+        />
+
+        <CompareMetric
+            label="Coordinates"
+            leftValue={country.atlas.coordinates || "Data Not Available"}
+            rightValue={compareCountry?.atlas.coordinates || "Data Not Available"}
+            leftCountry={country.atlas.name}
+            rightCountry={compareCountry?.atlas.name}
+            compareMode={compareMode}
+            source={METRIC_META.coordinates.source}
+            year={METRIC_META.coordinates.year}
+            indicator={METRIC_META.coordinates.indicator}
+        />
+
+        <CompareMetric
+            label="Latitude"
+            leftValue={country.atlas.lat != null ? `${country.atlas.lat.toFixed(4)}°` : "Data Not Available"}
+            rightValue={compareCountry?.atlas.lat != null ? `${compareCountry.atlas.lat.toFixed(4)}°` : "Data Not Available"}
+            leftCountry={country.atlas.name}
+            rightCountry={compareCountry?.atlas.name}
+            compareMode={compareMode}
+        />
+
+        <CompareMetric
+            label="Longitude"
+            leftValue={country.atlas.lng != null ? `${country.atlas.lng.toFixed(4)}°` : "Data Not Available"}
+            rightValue={compareCountry?.atlas.lng != null ? `${compareCountry.atlas.lng.toFixed(4)}°` : "Data Not Available"}
+            leftCountry={country.atlas.name}
+            rightCountry={compareCountry?.atlas.name}
+            compareMode={compareMode}
+        />
+
+        <CompareMetric
+            label="Landlocked"
+            leftValue={country.atlas.landlocked || "Data Not Available"}
+            rightValue={compareCountry?.atlas.landlocked || "Data Not Available"}
+            leftCountry={country.atlas.name}
+            rightCountry={compareCountry?.atlas.name}
+            compareMode={compareMode}
+            source={METRIC_META.landlocked.source}
+            year={METRIC_META.landlocked.year}
+            indicator={METRIC_META.landlocked.indicator}
+        />
+
+        {/* Phase 3A — Demographics */}
+        <CompareMetric
+            label="Population Growth"
+            leftValue={country.atlas.populationGrowth || "Data Not Available"}
+            rightValue={compareCountry?.atlas.populationGrowth || "Data Not Available"}
+            leftCountry={country.atlas.name}
+            rightCountry={compareCountry?.atlas.name}
+            compareMode={compareMode}
+            source={METRIC_META.populationGrowth.source}
+            year={METRIC_META.populationGrowth.year}
+            indicator={METRIC_META.populationGrowth.indicator}
+        />
+
+        <CompareMetric
+            label="Birth Rate"
+            leftValue={country.atlas.birthRate || "Data Not Available"}
+            rightValue={compareCountry?.atlas.birthRate || "Data Not Available"}
+            leftCountry={country.atlas.name}
+            rightCountry={compareCountry?.atlas.name}
+            compareMode={compareMode}
+            source={METRIC_META.birthRate.source}
+            year={METRIC_META.birthRate.year}
+            indicator={METRIC_META.birthRate.indicator}
+        />
+
+        <CompareMetric
+            label="Death Rate"
+            leftValue={country.atlas.deathRate || "Data Not Available"}
+            rightValue={compareCountry?.atlas.deathRate || "Data Not Available"}
+            leftCountry={country.atlas.name}
+            rightCountry={compareCountry?.atlas.name}
+            compareMode={compareMode}
+            source={METRIC_META.deathRate.source}
+            year={METRIC_META.deathRate.year}
+            indicator={METRIC_META.deathRate.indicator}
+        />
+
+        <CompareMetric
+            label="Life Expectancy"
+            leftValue={country.atlas.lifeExpectancy || "Data Not Available"}
+            rightValue={compareCountry?.atlas.lifeExpectancy || "Data Not Available"}
+            leftCountry={country.atlas.name}
+            rightCountry={compareCountry?.atlas.name}
+            compareMode={compareMode}
+            source={METRIC_META.lifeExpectancy.source}
+            year={METRIC_META.lifeExpectancy.year}
+            indicator={METRIC_META.lifeExpectancy.indicator}
+        />
+
         <CompareMetric
             label="Forest Coverage"
             leftValue={country.atlas.forestCoverage}
@@ -217,6 +321,9 @@ function AtlasSection({
             leftCountry={country.atlas.name}
             rightCountry={compareCountry?.atlas.name}
             compareMode={compareMode}
+            source={METRIC_META.forestCoverage.source}
+            year={METRIC_META.forestCoverage.year}
+            indicator={METRIC_META.forestCoverage.indicator}
         />
 
     </div>

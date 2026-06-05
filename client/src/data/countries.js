@@ -13,7 +13,19 @@ const countries = [
       timezone: "UTC+9",
       forestCoverage: "68.4%",
       flag: "https://flagcdn.com/jp.svg",
-      map: "https://goo.gl/maps/cYuTKABMvUUqnwE66"
+      map: "https://goo.gl/maps/cYuTKABMvUUqnwE66",
+      // Phase 3A
+      borders: "None (Island Nation)",
+      coordinates: "36.20°, 138.25°",
+      lat: 36.2048,
+      lng: 138.2529,
+      landlocked: "No",
+      populationGrowth: "-0.53%",
+      birthRate: "6.3 per 1,000",
+      deathRate: "12.0 per 1,000",
+      lifeExpectancy: "84.8 years",
+      drivingSide: "Left",
+      demonym: "Japanese",
     },
     economy: {
       gdp: "$4.2T",
@@ -21,6 +33,7 @@ const countries = [
       gdpPerCapita: "$33,900",
       inflation: "2.1%",
       unemployment: "2.6%",
+      gdpGrowthRate: "1.9%",
       workforce: "69 Million",
       industries: [
         "Automotive",
@@ -48,7 +61,22 @@ const countries = [
       internet: "94%",
       safety: "Very Safe",
       workLife: "Moderate",
-      costOfLiving: "High"
+      costOfLiving: "High",
+      // Phase 3A
+      hdi: "0.920",
+      educationIndex: "0.878",
+      costOfLivingIndex: "62.5",
+      rentIndex: "22.0",
+      groceryIndex: "68.2",
+      restaurantIndex: "42.0",
+      safetyIndex: "78.2",
+      crimeIndex: "22.0",
+      literacyRate: "99.0%",
+      schoolEnrollment: "99.9%",
+      internetUsersPercent: "92.7%",
+      officialName: "State of Japan",
+      drivingSide: "Left",
+      demonym: "Japanese",
     },
     mobility: {
       immigration: "Welcoming",
@@ -68,6 +96,9 @@ const countries = [
       influence: "Major",
       tourism: "Excellent",
       aiSummary: "Japan combines technological maturity with social stability and long-term innovation potential."
+    },
+    news: {
+      headlines: []
     }
   },
   {
@@ -84,7 +115,19 @@ const countries = [
       timezone: "UTC+5:30",
       forestCoverage: "21.7%",
       flag: "https://flagcdn.com/in.svg",
-      map: "https://goo.gl/maps/12345"
+      map: "https://goo.gl/maps/12345",
+      // Phase 3A
+      borders: "BGD, BTN, CHN, MMR, NPL, PAK",
+      coordinates: "20.59°, 78.96°",
+      lat: 20.5937,
+      lng: 78.9629,
+      landlocked: "No",
+      populationGrowth: "0.81%",
+      birthRate: "16.7 per 1,000",
+      deathRate: "7.3 per 1,000",
+      lifeExpectancy: "70.4 years",
+      drivingSide: "Left",
+      demonym: "Indian",
     },
     economy: {
       gdp: "$3.7T",
@@ -92,6 +135,7 @@ const countries = [
       gdpPerCapita: "$2,600",
       inflation: "5.5%",
       unemployment: "7.1%",
+      gdpGrowthRate: "7.2%",
       workforce: "500 Million",
       industries: [
         "IT",
@@ -119,7 +163,22 @@ const countries = [
       internet: "43%",
       safety: "Moderate",
       workLife: "Demanding",
-      costOfLiving: "Low"
+      costOfLiving: "Low",
+      // Phase 3A
+      hdi: "0.644",
+      educationIndex: "0.557",
+      costOfLivingIndex: "21.1",
+      rentIndex: "5.4",
+      groceryIndex: "25.0",
+      restaurantIndex: "15.5",
+      safetyIndex: "56.5",
+      crimeIndex: "44.7",
+      literacyRate: "74.4%",
+      schoolEnrollment: "111.8%",
+      internetUsersPercent: "46.3%",
+      officialName: "Republic of India",
+      drivingSide: "Left",
+      demonym: "Indian",
     },
     mobility: {
       immigration: "Complex",
@@ -139,6 +198,9 @@ const countries = [
       influence: "Major",
       tourism: "Strong",
       aiSummary: "India is a rapidly developing country with immense demographic potential and a booming digital economy."
+    },
+    news: {
+      headlines: []
     }
   }
 ];

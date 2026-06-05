@@ -14,7 +14,8 @@ const items = [
     { label: "Climate", id: "climate" },
     { label: "Lifestyle", id: "lifestyle" },
     { label: "Mobility", id: "mobility" },
-    { label: "Pulse", id: "pulse" }
+    { label: "Pulse", id: "pulse" },
+    { label: "News", id: "news" }
 ];
 
 useEffect(() => {

@@ -33,6 +33,12 @@ function EconomySection({
       ...METRIC_META.unemployment
     },
     {
+      label: "GDP Growth Rate",
+      leftValue: country.economy.gdpGrowthRate || "Data Not Available",
+      rightValue: compareCountry?.economy.gdpGrowthRate || "Data Not Available",
+      ...METRIC_META.gdpGrowthRate
+    },
+    {
       label: "Workforce Status",
       leftValue: country.economy.workforce,
       rightValue: compareCountry?.economy.workforce

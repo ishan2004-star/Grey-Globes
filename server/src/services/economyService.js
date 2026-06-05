@@ -10,6 +10,7 @@ const fetchEconomyData = async (
             perCapitaResponse,
             inflationResponse,
             unemploymentResponse,
+            gdpGrowthResponse,
         ] = await Promise.all([
 
             axios.get(
@@ -28,6 +29,10 @@ const fetchEconomyData = async (
                 `https://api.worldbank.org/v2/country/${countryCode}/indicator/SL.UEM.TOTL.ZS?format=json`
             ),
 
+            axios.get(
+                `https://api.worldbank.org/v2/country/${countryCode}/indicator/NY.GDP.MKTP.KD.ZG?format=json`
+            ),
+
         ]);
 
         const gdpData =
@@ -41,6 +46,9 @@ const fetchEconomyData = async (
 
         const unemploymentData =
             unemploymentResponse.data;
+
+        const gdpGrowthData =
+            gdpGrowthResponse.data;
 
         const latestGDP =
             gdpData[1]?.find(
@@ -59,6 +67,11 @@ const fetchEconomyData = async (
 
         const latestUnemployment =
             unemploymentData[1]?.find(
+                item => item.value !== null
+            );
+
+        const latestGdpGrowth =
+            gdpGrowthData[1]?.find(
                 item => item.value !== null
             );
 
@@ -90,6 +103,12 @@ const fetchEconomyData = async (
                 latestUnemployment?.value
                     ? `${latestUnemployment.value.toFixed(1)}%`
                     : "Unavailable",
+
+            // Phase 3A — GDP Growth Rate
+            gdpGrowthRate:
+                latestGdpGrowth?.value != null
+                    ? `${latestGdpGrowth.value.toFixed(2)}%`
+                    : "Data Not Available",
 
             workforce:
                 "National Workforce Active",
@@ -123,6 +142,8 @@ const fetchEconomyData = async (
                 "Unavailable",
             unemployment:
                 "Unavailable",
+            gdpGrowthRate:
+                "Data Not Available",
             workforce:
                 "Unavailable",
             industries: [

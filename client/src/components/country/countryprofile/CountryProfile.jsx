@@ -8,6 +8,7 @@ import ClimateSection from "../sections/climate/ClimateSection";
 import LifestyleSection from "../sections/lifestyle/LifestyleSection";
 import MobilitySection from "../sections/mobility/MobilitySection";
 import PulseSection from "../sections/pulse/PulseSection";
+import NewsSection from "../sections/news/NewsSection";
 
 import useReveal from "../../../hooks/useReveal";
 
@@ -34,6 +35,8 @@ function CountryProfile({ country }) {
         <MobilitySection country={country} />
 
         <PulseSection country={country} />
+
+        <NewsSection country={country} />
 
       </div>
 

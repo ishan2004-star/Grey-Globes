@@ -41,10 +41,10 @@ function Explore() {
           formattedQuery
         );
 
-      if (!countryData) {
+      if (!countryData || countryData.success === false) {
 
         setError(
-          "Unable to locate country dataset."
+          "No result found."
         );
 
         setLoading(false);
@@ -56,26 +56,6 @@ function Explore() {
       setSelectedCountry(
         countryData
       );
-
-      setLoading(false);
-
-
-      setSelectedCountry({
-
-        ...countryData,
-
-        economy: economyData,
-
-        climate: climateData,
-
-        lifestyle: lifestyleData,
-
-        mobility: mobilityData,
-
-        pulse: pulseData
-
-      });
-
 
       setLoading(false);
 
