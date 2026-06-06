@@ -1,0 +1,350 @@
+.countryActions {
+  width: 100%;
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.countryActionsInner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Save Button ── */
+
+.saveCountryRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.saveBtn {
+  padding: 14px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.saveBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.20);
+  transform: translateY(-2px);
+}
+
+.saveBtn.saved {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: var(--color-primary);
+}
+
+.saveBtn .saveIcon {
+  font-size: 18px;
+}
+
+.loginPrompt {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-family);
+}
+
+.loginPrompt a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ── Section Titles ── */
+
+.actionsTitle {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  margin-bottom: 24px;
+}
+
+.actionsSubtitle {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-family);
+  margin-bottom: 8px;
+}
+
+/* ── Comments ── */
+
+.commentsSection {
+  margin-bottom: 60px;
+}
+
+.commentForm {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.commentForm textarea {
+  flex: 1;
+  min-height: 60px;
+  padding: 16px 18px;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  color: var(--color-primary);
+  font-size: 15px;
+  font-family: var(--font-family);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.commentForm textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.commentForm textarea:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.commentForm button {
+  padding: 0 24px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.commentForm button:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.commentCard {
+  padding: 20px 24px;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.commentCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.commentAuthor {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+}
+
+.commentDate {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.40);
+  font-family: var(--font-family);
+}
+
+.commentBody {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-family);
+  line-height: 1.6;
+}
+
+.commentActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.commentActionBtn {
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 12px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.commentActionBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-primary);
+}
+
+.commentActionBtn.danger:hover {
+  background: rgba(255, 100, 100, 0.12);
+  color: #ff8a8a;
+}
+
+.commentEditArea {
+  margin-top: 10px;
+}
+
+.commentEditArea textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-family: var(--font-family);
+  resize: vertical;
+  outline: none;
+}
+
+.commentEditActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ── Notes ── */
+
+.notesSection {
+  margin-bottom: 40px;
+}
+
+.noteForm {
+  display: flex;
+  gap: 12px;
+}
+
+.noteForm textarea {
+  flex: 1;
+  min-height: 80px;
+  padding: 16px 18px;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  color: var(--color-primary);
+  font-size: 15px;
+  font-family: var(--font-family);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.noteForm textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.noteForm textarea:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.noteForm button {
+  padding: 0 24px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+.noteForm button:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.noteDisplay {
+  padding: 20px 24px;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  margin-top: 16px;
+}
+
+.noteText {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-family);
+  line-height: 1.6;
+}
+
+.noteLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.40);
+  font-family: var(--font-family);
+  margin-bottom: 8px;
+}
+
+/* ── Divider ── */
+
+.actionsDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 48px 0;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+
+  .countryActions {
+    padding: var(--section-padding-mobile);
+  }
+
+  .commentForm,
+  .noteForm {
+    flex-direction: column;
+  }
+
+  .commentForm button,
+  .noteForm button {
+    padding: 14px 24px;
+    align-self: flex-start;
+  }
+
+}

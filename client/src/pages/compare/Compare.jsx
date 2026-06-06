@@ -1,6 +1,7 @@
 import "./compare.css";
 
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 import Navbar from "../../components/ui/navbar/Navbar";
 import StickyNav from "../../components/ui/stickynav/StickyNav";
@@ -18,7 +19,11 @@ import NewsSection from "../../components/country/sections/news/NewsSection";
 import fetchCompareData
 from "../../services/fetchCompareData";
 
+const API_BASE = "http://localhost:5000/api";
+
 function Compare() {
+
+  const { isAuthenticated, authFetch } = useAuth();
 
   const [leftCountry, setLeftCountry] =
     useState(null);
@@ -35,6 +40,11 @@ function Compare() {
   const [compareError, setCompareError] =
     useState("");
 
+  // Save comparison state
+  const [saveTitle, setSaveTitle] = useState("");
+  const [saveFeedback, setSaveFeedback] = useState("");
+  const [saving, setSaving] = useState(false);
+
   const handleCompare = async (
     leftQuery,
     rightQuery
@@ -43,6 +53,8 @@ function Compare() {
     setCompareError("");
 
     setLoadingCompare(true);
+
+    setSaveFeedback("");
 
     const results =
       await fetchCompareData(
@@ -92,6 +104,37 @@ function Compare() {
 
   };
 
+  const handleSaveComparison = async () => {
+    if (!isAuthenticated || !leftCountry || !rightCountry) return;
+
+    setSaving(true);
+    setSaveFeedback("");
+
+    try {
+      const leftName = leftCountry?.atlas?.name || leftCountry?.name || "";
+      const rightName = rightCountry?.atlas?.name || rightCountry?.name || "";
+
+      const data = await authFetch(`${API_BASE}/comparisons`, {
+        method: "POST",
+        body: JSON.stringify({
+          countries: [leftName, rightName],
+          title: saveTitle.trim() || `${leftName} vs ${rightName}`,
+        }),
+      });
+
+      if (data.success) {
+        setSaveFeedback("Comparison saved!");
+        setSaveTitle("");
+      } else {
+        setSaveFeedback(data.message || "Failed to save.");
+      }
+    } catch (err) {
+      setSaveFeedback("Error saving comparison.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
   return (
 
     <div className="comparePage">
@@ -118,6 +161,33 @@ function Compare() {
         rightCountry && (
 
         <>
+
+          {/* Save Comparison Bar */}
+          {isAuthenticated && (
+            <div className="saveComparisonBar">
+              <input
+                id="comparison-title"
+                type="text"
+                className="saveComparisonInput"
+                placeholder="Title (optional)"
+                value={saveTitle}
+                onChange={(e) => setSaveTitle(e.target.value)}
+              />
+              <button
+                id="save-comparison-btn"
+                className="saveComparisonBtn"
+                onClick={handleSaveComparison}
+                disabled={saving}
+              >
+                {saving ? "Saving..." : "Save Comparison"}
+              </button>
+              {saveFeedback && (
+                <span className="saveComparisonFeedback">
+                  {saveFeedback}
+                </span>
+              )}
+            </div>
+          )}
 
           <AtlasSection
             country={leftCountry}

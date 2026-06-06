@@ -1,0 +1,345 @@
+.profilePage {
+  min-height: 100vh;
+  position: relative;
+}
+
+.profilePage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.40);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
+
+.profileContent {
+  position: relative;
+  z-index: 1;
+  padding: 120px 80px 160px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+
+.profileHeader {
+  margin-bottom: 60px;
+  animation: authFadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.profileHeader h1 {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  line-height: 1.05;
+}
+
+.profileMeta {
+  margin-top: 16px;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.profileMeta span {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-family);
+  letter-spacing: 0.5px;
+}
+
+.profileLogout {
+  margin-left: auto;
+  padding: 10px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px;
+}
+
+.profileLogout:hover {
+  background: rgba(255, 100, 100, 0.15);
+  border-color: rgba(255, 100, 100, 0.25);
+  color: #ff8a8a;
+}
+
+/* ── Tabs ── */
+
+.profileTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.profileTab {
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px;
+}
+
+.profileTab:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.profileTab.active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--color-primary);
+}
+
+/* ── Section Panel ── */
+
+.profilePanel {
+  animation: profileFadeIn 0.35s ease;
+}
+
+@keyframes profileFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Account Info ── */
+
+.accountInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.accountField {
+  padding: 24px;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+}
+
+.accountField label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-family);
+  margin-bottom: 10px;
+}
+
+.accountField p {
+  font-size: 18px;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  font-weight: 500;
+}
+
+/* ── Item Cards (saved countries, comparisons, comments, notes) ── */
+
+.profileItemGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.profileItem {
+  padding: 24px;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.profileItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.profileItemTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.profileItemMeta {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-family);
+  letter-spacing: 0.3px;
+}
+
+.profileItemText {
+  margin-top: 12px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: var(--font-family);
+  line-height: 1.6;
+}
+
+.profileItemActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.profileItemBtn {
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.60);
+  font-size: 13px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profileItemBtn:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--color-primary);
+}
+
+.profileItemBtn.danger:hover {
+  background: rgba(255, 100, 100, 0.15);
+  border-color: rgba(255, 100, 100, 0.25);
+  color: #ff8a8a;
+}
+
+/* ── Empty State ── */
+
+.profileEmpty {
+  padding: 60px 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 16px;
+  font-family: var(--font-family);
+  line-height: 1.6;
+}
+
+.profileEmpty .emptyIcon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* ── Edit Modal (inline) ── */
+
+.editArea {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.editArea textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-family: var(--font-family);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.editArea textarea:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.editActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Comparison Countries Tags ── */
+
+.comparisonTags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.comparisonTag {
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.70);
+  font-family: var(--font-family);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+
+  .profileContent {
+    padding: 100px 24px 120px 24px;
+  }
+
+  .profileHeader h1 {
+    font-size: 42px;
+  }
+
+  .profileMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .profileLogout {
+    margin-left: 0;
+  }
+
+  .profileTabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding-bottom: 4px;
+  }
+
+  .profileTab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .accountInfo,
+  .profileItemGrid {
+    grid-template-columns: 1fr;
+  }
+
+}

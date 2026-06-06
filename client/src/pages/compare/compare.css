@@ -35,3 +35,81 @@
   z-index: 1;
 
 }
+
+/* ── Save Comparison Bar ── */
+
+.saveComparisonBar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 80px;
+  flex-wrap: wrap;
+}
+
+.saveComparisonInput {
+  width: 260px;
+  height: 46px;
+  padding: 0 18px;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-family: var(--font-family);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.saveComparisonInput:focus {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.saveComparisonInput::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.saveComparisonBtn {
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.saveComparisonBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.20);
+  transform: translateY(-1px);
+}
+
+.saveComparisonBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.saveComparisonFeedback {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-family);
+}
+
+@media (max-width: 768px) {
+  .saveComparisonBar {
+    padding: 16px 24px;
+  }
+
+  .saveComparisonInput {
+    width: 100%;
+  }
+}
