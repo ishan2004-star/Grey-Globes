@@ -22,32 +22,38 @@ Grey Globes brings every corner of the world closer to your future.
 Explore nations shaped by culture, ambition, innovation, and possibility. 
 
         </p>
-      </div>
 
-      <div className="card">
-        <div className="buttonContainer">
-
-          <div
-            className="glassButton"
+        <div className="heroCtaRow">
+          <button
+            className="heroButton heroButtonPrimary"
+            type="button"
             onClick={() => navigate("/explore")}
           >
             Explore
-          </div>
+          </button>
 
-          <div
-            className="glassButton"
+          <button
+            className="heroButton heroButtonSecondary"
+            type="button"
             onClick={() => navigate("/compare")}
           >
             Compare
-          </div>
+          </button>
+        </div>
 
-          <div
-            className="glassButton"
-            onClick={() => navigate("/analyze")}
-          >
-            Analyze
+        <div className="heroStats">
+          <div className="heroStat">
+            <strong>190+</strong>
+            <span>Countries</span>
           </div>
-
+          <div className="heroStat">
+            <strong>60+</strong>
+            <span>Indicators</span>
+          </div>
+          <div className="heroStat">
+            <strong>Live</strong>
+            <span>Data</span>
+          </div>
         </div>
       </div>
 

@@ -94,7 +94,7 @@ function Analyze() {
       <Navbar />
 
       {/* halftone dot overlay */}
-      <div className="analyzeHalftone" aria-hidden="true" />
+      {/* <div className="analyzeHalftone" aria-hidden="true" /> */}
 
       <main className="analyzeContent">
 

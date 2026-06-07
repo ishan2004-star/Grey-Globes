@@ -1,0 +1,292 @@
+.homeScroll {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  overflow: hidden;
+}
+
+.homeScroll::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
+
+.homeSection {
+  width: 100%;
+  padding: 110px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.homeSectionInner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  position: relative;
+}
+
+.homeProblemGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1fr);
+  gap: 72px;
+  align-items: center;
+}
+
+.homeSectionCopy {
+  max-width: 520px;
+}
+
+.homeSectionLabel,
+.homeClosingBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+.homeSection h2 {
+  margin: 22px 0 0;
+  color: var(--color-primary);
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 0.98;
+  font-weight: 650;
+  letter-spacing: -2px;
+}
+
+.homeSectionCopy p,
+.homeCentered p,
+.homeClosingCard p {
+  margin: 26px 0 0;
+  color: var(--color-secondary);
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+.homeMetricGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.homeMetricCard {
+  min-height: 190px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.homeMetricCard:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.homeMetricCard span {
+  color: var(--color-primary);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.homeMetricCard p {
+  margin: 18px 0 0;
+  color: var(--color-secondary);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.homeAudienceSection {
+  padding-top: 90px;
+}
+
+.homeCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.homeCentered h2 {
+  max-width: 760px;
+}
+
+.homeAudienceTags {
+  width: min(880px, 100%);
+  margin-top: 42px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.homeAudienceTag {
+  padding: 13px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-secondary);
+  font-size: 15px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.homeQuoteSection {
+  padding: 130px 80px;
+}
+
+.homeQuoteBlock {
+  width: min(900px, 100%);
+  text-align: center;
+}
+
+.homeQuoteBlock blockquote {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(36px, 5vw, 66px);
+  line-height: 1.08;
+  font-weight: 650;
+  letter-spacing: -2px;
+}
+
+.homeQuoteBlock p {
+  width: min(620px, 100%);
+  margin: 30px auto 0;
+  color: var(--color-muted);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.homeClosingSection {
+  padding-bottom: 140px;
+}
+
+.homeClosingCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 70px 48px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(10px);
+}
+
+.homeClosingCard h2 {
+  max-width: 720px;
+}
+
+.homeClosingCard p {
+  max-width: 560px;
+}
+
+.homeClosingButton {
+  min-width: 150px;
+  height: 54px;
+  margin-top: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.84);
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #08111f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  font-family: var(--font-family);
+}
+
+.homeClosingButton:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 960px) {
+  .homeSection {
+    padding: 90px 32px;
+  }
+
+  .homeProblemGrid {
+    grid-template-columns: 1fr;
+    gap: 46px;
+  }
+
+  .homeSectionCopy {
+    max-width: 680px;
+  }
+
+  .homeQuoteSection {
+    padding: 110px 32px;
+  }
+
+  .homeClosingSection {
+    padding-bottom: 110px;
+  }
+}
+
+@media (max-width: 620px) {
+  .homeSection {
+    padding: 76px 24px;
+  }
+
+  .homeMetricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .homeMetricCard {
+    min-height: auto;
+  }
+
+  .homeSection h2 {
+    letter-spacing: -1px;
+  }
+
+  .homeSectionCopy p,
+  .homeClosingCard p {
+    font-size: 17px;
+  }
+
+  .homeAudienceTags {
+    justify-content: flex-start;
+  }
+
+  .homeAudienceTag {
+    width: 100%;
+    text-align: center;
+  }
+
+  .homeQuoteSection {
+    padding: 96px 24px;
+  }
+
+  .homeQuoteBlock blockquote {
+    letter-spacing: -1px;
+  }
+
+  .homeClosingCard {
+    padding: 48px 24px;
+    border-radius: var(--radius-medium);
+  }
+
+  .homeClosingButton {
+    width: 100%;
+  }
+}
